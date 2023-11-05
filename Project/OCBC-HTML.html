@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Page</title>
+    <style>
+      body,html {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .img {
+        background-image: url("ocbc office.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* margin-top: 700px; */
+        filter: blur(8px);
+        height: 100%;
+
+      }
+      .title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: right;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      } 
+      .blankscreen {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <img src="ocbc office.jpg" alt=""> -->
+    <div class="img"></div>
+    <div class="title blankscreen"></div>
+    <div class="title">
+      <img class="logo" src="https://www.ocbc.com/iwov-resources/sg/ocbc/gbc/img/logo_ocbc.png" style="max-width: 743.5px; max-height: 100px;">
+    </div>
+  </body>
+</html>
