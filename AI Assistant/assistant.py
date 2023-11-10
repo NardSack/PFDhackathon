@@ -7,7 +7,8 @@ import speech_recognition as sr
 #OPENAI_KEY = os.getenv('sk-...1tlU')
 
 import openai
-openai.api_key = "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"
+# openai.api_key = "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" #Jing kai key
+openai.api_key="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" #raynard key
 
 def SpeakText(command):
     engine = pyttsx3.init()
