@@ -7,19 +7,19 @@ import speech_recognition as sr
 #OPENAI_KEY = os.getenv('sk-...1tlU')
 
 import openai
-# openai.api_key = "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" #Jing kai key
-openai.api_key="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" #raynard key
+openai.api_key =""; #insert your key here
 
+# for ai to speak function
 def SpeakText(command):
     engine = pyttsx3.init()
     engine.say(command)
     engine.runAndWait()
     
 r = sr.Recognizer()
-
+# converting recorded audio to text function
 def record_text():
     
-    while(1):
+    while(True):
         try:
             with sr.Microphone() as source2:
                 
@@ -39,6 +39,7 @@ def record_text():
         except sr.UnknownValueError:
             print("Unknown error occurred")
             
+# send to chatbot function
 def send_to_chatGPT(messages, model="gpt-3.5-turbo"):
     
     response = openai.ChatCompletion.create(
@@ -57,12 +58,16 @@ def send_to_chatGPT(messages, model="gpt-3.5-turbo"):
         exit()
     return message
 
-messages = [{"role":"user","content":"Please act like Jarvis from Iron man."}]
+# run the code here
+messages = [{"role":"user","content":"Pretend you are an OCBC staff."}]
+
+
 while(1):
     text = record_text()
+
     messages.append({"role":"user","content":text})
     response = send_to_chatGPT(messages)
+    print(response)
     SpeakText(response)
     
-    print(response)
     
