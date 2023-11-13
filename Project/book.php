@@ -32,6 +32,8 @@ if(isset($_POST['submit']))
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="style.css"></script>
+
 </head>
 <body>
     <div class="container">
@@ -39,7 +41,7 @@ if(isset($_POST['submit']))
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <?php echo isset($msg)?$msg:'';?>
-                <form action="" method="post" autocomplete="off">
+                <form action="upload.php" method="post" autocomplete="off" enctype="multipart/form-data">
                     <div class="formgroup">
                         <label for="">Name</label>
                         <input type="text" class="form-control" name="name">
@@ -48,6 +50,27 @@ if(isset($_POST['submit']))
                         <label for="">Email</label>
                         <input type="email" class="form-control" name="email">
                     </div>
+                    <div class="formgroup">
+                        <label for="reason">Reason for Consult</label>
+                        <select id="reason" name="reason">
+                            <option value="account">Create a Bank Account</option>
+                            <option value="card">Create a Credit / Debit Card</option>
+                            <option value="others">Others</option>
+                        </select>
+
+                    </div>
+                    <div class="formgroup">
+                        <label for="reason">Additional Notes <span style="font-size:10px">(Enter reason if others is selected)</span></label>
+                        <input type="text" class="form-control" placeholder="Type Here..." name="reason">
+
+                    </div>
+                    <!-- <div class="formgroup"> -->
+
+                    Select image to upload:
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="submit" value="Upload Image" name="submit">
+                    
+                    <!-- </div> -->
                     <button class="btn btn-primary" type="submit" name="submit">Submit</button>
                 </form>
             </div>
