@@ -11,15 +11,17 @@
       <input type="text" id="user-input" placeholder="Type your message...">
       <button id="send-btn">Send</button>
     </div>
-    <script>
+    <script type="module">
       import { Configuration, OpenAIApi } from "openai";
+      import { SpeechSDK } from "@azure/cognitiveservices-speech-sdk";
       const configuration = new Configuration({
       organization: "org-gcymRqyRUpcDhVLdrmjh9KuT",
-      apiKey: "",
+      apiKey: "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",
       });
       // Initialize OpenAI API
       const openai = new OpenAIApi(configuration);
-      const response = await openai.listEngines();
+      // const response = await openai.listEngines();
+      const recognizer = new SpeechSDK.Recognizer();
       const chatContainer = document.getElementById('chat-container');
       const userInput = document.getElementById('user-input');
       const sendBtn = document.getElementById('send-btn');
