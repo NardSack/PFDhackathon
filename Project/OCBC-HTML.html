@@ -5,7 +5,7 @@
     <title>My Page</title>
     <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
-    <script type="module" src="../chatgpt2/script.js"></script>
+    <script type="module" src="script.js"></script>
     <style>
       body,html {
         height: 100%;
@@ -43,17 +43,45 @@
         width: 100%;
         height: 100%;
       }
+      #chat{
+        position: absolute;
+        top: 60%; 
+        left: 2%;
+        text-align: center;
+      }
+      #responses{
+        position: absolute;
+        top: 30%; 
+        left: 2%;
+        text-align: center;
+      }
+      #qn{
+        position: absolute;
+        top: 20%; 
+        left: 2%;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
     <!-- <img src="ocbc office.jpg" alt=""> -->
-    <div class="img"></div>
-    <div class="title blankscreen"></div>
+    <div id="qn">
+
+    </div>
+    <div id="responses">
+
+    </div>
+    <div id="chat">
+      <label for="Question">Enter your Question:</label>
+      <input type="text" id="Question" name="Question">
+      <button id="submit">></button>
+    </div>  
+    <!-- <div class="img"></div> -->
+    <!-- <div class="title blankscreen"></div> -->
     <div class="title">
       <img class="logo" src="https://www.ocbc.com/iwov-resources/sg/ocbc/gbc/img/logo_ocbc.png" style="max-width: 743.5px; max-height: 100px;">
-        <button style="max-width: 10%; max-height: 40%;" id="audio">
-          <img src="microphone.png" alt="Audio" style="width:10%; height: 10%;">
-        </button>
+        <!-- <button style="max-width: 10%; max-height: 40%;" id="audio"> -->
+          <!-- <img src="microphone.png" alt="Audio" style="width:10%; height: 10%;"> -->
     </div>
   </body>
 </html>
