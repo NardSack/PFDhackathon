@@ -64,3 +64,4 @@ while(True):
     response = send_to_chatGPT(messages)
     print(response)
     SpeakText(response)
+    
