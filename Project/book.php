@@ -1,4 +1,12 @@
 <?php
+
+function addfiles()
+{
+    echo '<input type="file" name="file">';
+    echo "<button id='addfiles' onclick='addfiles'>add more files</button>";
+}
+
+
 if(isset($_GET['date']))
 {
     $date = $_GET['date'];
@@ -121,6 +129,7 @@ echo $statusMsg;
                     
                     Select Image File to Upload:
                     <input type="file" name="file">
+                    <button id='addfiles' onclick="addfiles">add more files</button>
                     <!-- <input type="submit" name="submit" value="Upload"> -->
                     
                     </div>
