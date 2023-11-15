@@ -1,8 +1,8 @@
 //install npm thn npm install openai and readline
 // Import the necessary libraries
-const { createInterface } = require('readline');
-const openai = require('openai');
-// import { createInterface } from "readline";
+// const { createInterface } = require('readline');
+// const openai = require('openai');
+import { createInterface } from "../node_modules/readline/readline.js";
 // import OpenAI from "openai";
 
 // Set up the OpenAI API client
