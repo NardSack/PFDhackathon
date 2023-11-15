@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAI Chatbot</title>
+  </head>
+  <body>
+    <h1>OpenAI Chatbot</h1>
+    <div id="chat-container"></div>
+    <div>
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button id="send-btn">Send</button>
+    </div>
+    <script type="module">
+      import { Configuration, OpenAIApi } from "openai";
+      import { SpeechSDK } from "@azure/cognitiveservices-speech-sdk";
+      const configuration = new Configuration({
+      organization: "org-gcymRqyRUpcDhVLdrmjh9KuT",
+      apiKey: "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",
+      });
+      // Initialize OpenAI API
+      const openai = new OpenAIApi(configuration);
+      // const response = await openai.listEngines();
+      const recognizer = new SpeechSDK.Recognizer();
+      const chatContainer = document.getElementById('chat-container');
+      const userInput = document.getElementById('user-input');
+      const sendBtn = document.getElementById('send-btn');
+      // Function to add a message to the chat container
+      function addMessage(message, sender) {
+        const messageElem = document.createElement('div');
+        messageElem.classList.add('message');
+        messageElem.classList.add(sender);
+        messageElem.innerText = message;
+        chatContainer.appendChild(messageElem);
+      }
+
+      // Function to send user input to OpenAI and get a response
+      async function sendMessage(input) {
+        addMessage(input, 'user');
+        userInput.value = '';
+
+        // Send user input to OpenAI
+        const response = await openai.complete({
+          engine: 'davinci',
+          prompt: input,
+          maxTokens: 150,
+          n: 1,
+          stop: '\n',
+        });
+
+        // Add OpenAI's response to the chat container
+        const message = response.data.choices[0].text.trim();
+        addMessage(message, 'bot');
+      }
+
+      // Event listener for send button click
+      sendBtn.addEventListener('click', () => {
+        const input = userInput.value.trim();
+        if (input) {
+          sendMessage(input);
+        }
+      });
+
+      // Event listener for user pressing Enter key
+      userInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          const input = userInput.value.trim();
+          if (input) {
+            sendMessage(input);
+          }
+        }
+      });
+
+      // Voice recognition
+      const recognition = new webkitSpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "en-US";
+
+      recognition.onresult = function(event) {
+        const result = event.results[event.results.length - 1][0].transcript;
+        userInput.value = result;
+        sendMessage(result);
+      }
+
+      recognition.onerror = function(event) {
+        console.error(event.error);
+      }
+
+      // Event listener for voice recognition button click
+      const voiceBtn = document.createElement('button');
+      voiceBtn.innerText = 'Start voice recognition';
+      voiceBtn.addEventListener('click', () => {
+        recognition.start();
+      });
+      document.body.appendChild(voiceBtn);
+    </script>
+  </body>
+</html>

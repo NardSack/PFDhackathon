@@ -1,14 +1,13 @@
 import pyttsx3
 import speech_recognition as sr
-
 #import os
 #from dotenv import load_dotenv
 #load_dotenv()
 #OPENAI_KEY = os.getenv('sk-...1tlU')
-
 import openai
-openai.api_key =""; #insert your key here
 
+openai.api_key ="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"; #insert your key here
+print("hi")
 # for ai to speak function
 def SpeakText(command):
     engine = pyttsx3.init()
@@ -23,14 +22,11 @@ def record_text():
         try:
             with sr.Microphone() as source2:
                 
-                r.adjust_for_ambient_noise(source2, duration=0.2)
-                
+                r.adjust_for_ambient_noise(source2, duration=0.2)  
                 print("I'm listening")
-                
                 audio2 = r.listen(source2)
                 
                 MyText = r.recognize_google(audio2)
-                
                 return MyText
         
         except sr.RequestError as e:
@@ -61,13 +57,10 @@ def send_to_chatGPT(messages, model="gpt-3.5-turbo"):
 # run the code here
 messages = [{"role":"user","content":"Pretend you are an OCBC staff."}]
 
-
-while(1):
+print("hi")
+while(True):
     text = record_text()
-
     messages.append({"role":"user","content":text})
     response = send_to_chatGPT(messages)
     print(response)
     SpeakText(response)
-    
-    
