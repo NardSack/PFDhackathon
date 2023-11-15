@@ -70,4 +70,3 @@ while(1):
     print(response)
     SpeakText(response)
     
-    
