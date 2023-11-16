@@ -26,7 +26,8 @@ function showStoreMarkers() {
 };
 
 function createMarker(latlng, name, address) {
-    var html = "<b>" + name + "</b> <br/>" + address;
+    var tolocation = "../Project/Calendar.php";
+    var html = "<b>" + name + "</b> <br/>" + address + "<br/> <button value='"+name+"' onclick=\"window.location.href='" + tolocation + '?branch='+name+"'\">book</button>";
     var marker = new google.maps.Marker({
         map: map,
         position: latlng

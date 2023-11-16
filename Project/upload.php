@@ -14,7 +14,7 @@ if(isset($_POST["submit"])){
         $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION); 
      
         // Allow certain file formats 
-        $allowTypes = array('jpg','png','jpeg','gif'); 
+        $allowTypes = array('jpg','png','jpeg','gif','pdf'); 
         if(in_array($fileType, $allowTypes)){ 
             // Upload file to server 
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
