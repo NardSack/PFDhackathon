@@ -34,7 +34,7 @@ function callChatGPT(input) {
         "method": "POST",
         "headers": new Headers({
             "Content-Type": "application/json",
-            "Authorization": "Bearer {apikey}"
+            "Authorization": "Bearer apikey"
         }),
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
@@ -54,7 +54,8 @@ function callChatGPT(input) {
 document.getElementById("submit").addEventListener('click', function()
 {
     var questions = document.getElementById("Question").value
+    var qn = "Pretend you are an OCBC AI Assitant." + questions
     document.getElementById("qn").innerHTML += questions + "<br>"
     console.log(questions)
-    callChatGPT(questions)
-})  
+    callChatGPT(qn)
+})
