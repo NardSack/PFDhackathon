@@ -59,11 +59,18 @@
         text-align: left;
         margin-bottom: 5%;
       }
-      .container {
+      /* .container {
         position: absolute;
         top: 370px;
+      } */
+      .bigggcontainer{
+        position: relative;
+        bottom: 700px;
       }
       #textchatarea {
+        /* position: relative;
+        top: 90%; 
+        left: 2%; */
         height: auto;
         max-height: 300px;
         overflow-y: auto;
@@ -77,36 +84,54 @@
       {
         border-radius: 7%;
       }
+      /* .col-md-3
+      {
+        display: flex;
+        flex-direction: column;
+      } */
+      #goaway
+      {
+        position: relative;
+        left: 200%;
+      }
+
     </style>
   </head>
   <body>
     <div class="title">
       <img class="logo" src="https://www.ocbc.com/iwov-resources/sg/ocbc/gbc/img/logo_ocbc.png" style="max-width: 743.5px; max-height: 100px;">
     </div>
+    
     <!-- <img src="ocbc office.jpg" alt=""> -->
+
     <div class="col-md-3">
+      <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+      <dotlottie-player id="goaway" src="https://lottie.host/97d15805-ae64-4e4d-8b42-6a5dd8e1b625/C2OzGlPFwP.json" background="transparent" speed="0.5" style="width: 600px; height: 600px;" loop autoplay></dotlottie-player>
+      <div class="bigggcontainer">
       <div id="textchatarea">
         <!-- <div class="qn">test question</div>
-        <div class="responses">test answers</div> -->
-      </div>
+          <div class="responses">test answers</div> -->
+        </div>
         <div class="container">
-
-        <div id="chat">
-          <label for="Question">Enter your Question:</label>
-          <div style="display: flex;">
-            <input type="text" id="Question" name="Question" style="flex: 1;">
-            <button class="btn btn-primary" id="submit">></button>
+          <div id="chat">
+            
+            <label for="Question">Enter your Question:</label>
+            <div style="display: flex;">
+              <input type="text" id="Question" name="Question" style="flex: 1;">
+              <button class="btn btn-primary" id="submit">></button>
+            </div>
+            <button class="btn btn-primary" id="audio">
+              <img src="microphone.png" alt="audio" style="width:10%; height: 10%;"> press and hold</button>
+              <br><br>
+              <button class="btn btn-primary" onclick="window.location.href='../GoogleMapsJS-master/index.html'">
+                Seek help in a OCBC branch 
+              </button>
+            </div>  
+            
           </div>
-          <button class="btn btn-primary" id="audio">
-          <img src="microphone.png" alt="audio" style="width:10%; height: 10%;"> press and hold</button>
-          <br><br>
-          <button class="btn btn-primary" onclick="window.location.href='../GoogleMapsJS-master/index.html'">
-            Seek help in a OCBC branch 
-          </button>
-        </div>  
+        </div>
         
-      </div>
-    </div>
+        </div>
     <!-- <div class="img"></div> -->
     <!-- <div class="title blankscreen"></div> -->
     <link defer rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
