@@ -46,24 +46,39 @@
         height: 100%;
       }
       #chat{
-        position: absolute;
+        position: relative;
         top: 90%; 
         left: 2%;
         text-align: left;
+        background-color: white;
+        padding-left: 20px;
+        padding-right: 20px;
       }
       #responses{
-        position: absolute;
+        position: relative;
         top: 30%; 
         left: 2%;
         text-align: left;
         margin-bottom: 5%;
       }
       #qn{
-        position: absolute;
+        position: relative;
         top: 20%; 
         left: 2%;
         text-align: left;
         margin-bottom: 5%;
+      }
+      .container {
+        position: absolute;
+        top: 370px;
+        
+        opacity: 0.95 ;
+        
+      }
+      #textchatarea {
+        height: auto;
+        max-height: 300px;
+        overflow-y: auto;
       }
     </style>
   </head>
@@ -72,25 +87,31 @@
       <img class="logo" src="https://www.ocbc.com/iwov-resources/sg/ocbc/gbc/img/logo_ocbc.png" style="max-width: 743.5px; max-height: 100px;">
     </div>
     <!-- <img src="ocbc office.jpg" alt=""> -->
-    <div class="container">
-      <div class="col-md-3">
-        <div id="textchatarea">
-          <!-- <div class="qn">test question</div>
-          <div class="responses">test answers</div> -->
-        </div>
+    <div class="col-md-3">
+      <div id="textchatarea">
+        <!-- <div class="qn">test question</div>
+        <div class="responses">test answers</div> -->
+      </div>
+        <div class="container">
 
         <div id="chat">
           <label for="Question">Enter your Question:</label>
-          <input type="text" id="Question" name="Question">
-          <button id="submit">></button>
-          <button style="max-width: 20%; max-height: 40%;" id="audio">
+          <div style="display: flex;">
+            <input type="text" id="Question" name="Question" style="flex: 1;">
+            <button class="btn btn-primary" id="submit">></button>
+          </div>
+          <button class="btn btn-primary" id="audio">
           <img src="microphone.png" alt="audio" style="width:10%; height: 10%;"> press and hold</button>
         </div>  
+        <br>
+        <button class="btn btn-primary" onclick="window.location.href='../GoogleMapsJS-master/index.html'">
+          Seek help in a OCBC branch 
+        </button>
         
       </div>
     </div>
     <!-- <div class="img"></div> -->
     <!-- <div class="title blankscreen"></div> -->
-
+    <link defer rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </body>
 </html>
