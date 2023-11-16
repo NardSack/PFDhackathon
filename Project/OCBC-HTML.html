@@ -11,21 +11,15 @@
         margin: 0;
       }
       body {
+        background-color: #eed9c4 !important;
         font-family: Arial, Helvetica, sans-serif;
-        background-image: url("https://www.caproasia.com/wp-content/uploads/2023/07/OCBC-Singapore-Headquarter.jpg");
-        background-size: cover;
-        
       }
-      * {
-        box-sizing: border-box;
-      }
+      
       .img {
-        background-image: url("ocbc office.jpg");
+        /* background-image: url("ocbc office.jpg"); */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        /* margin-top: 700px; */
-        filter: blur(8px);
         height: 100%;
 
       }
@@ -34,14 +28,12 @@
         top: 0;
         left: 0;
         padding: 20px;
-        color: white;
         font-size: 24px;
         font-weight: bold;
         text-align: right;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       } 
       .blankscreen {
-        background-color: white;
         width: 100%;
         height: 100%;
       }
@@ -50,7 +42,6 @@
         top: 90%; 
         left: 2%;
         text-align: left;
-        background-color: white;
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -71,14 +62,20 @@
       .container {
         position: absolute;
         top: 370px;
-        
-        opacity: 0.95 ;
-        
       }
       #textchatarea {
         height: auto;
         max-height: 300px;
         overflow-y: auto;
+      }
+      .btn
+      {
+        background-color: #e11a27 !important;
+        border: none !important;
+      }
+      #Question
+      {
+        border-radius: 7%;
       }
     </style>
   </head>
@@ -102,11 +99,11 @@
           </div>
           <button class="btn btn-primary" id="audio">
           <img src="microphone.png" alt="audio" style="width:10%; height: 10%;"> press and hold</button>
+          <br><br>
+          <button class="btn btn-primary" onclick="window.location.href='../GoogleMapsJS-master/index.html'">
+            Seek help in a OCBC branch 
+          </button>
         </div>  
-        <br>
-        <button class="btn btn-primary" onclick="window.location.href='../GoogleMapsJS-master/index.html'">
-          Seek help in a OCBC branch 
-        </button>
         
       </div>
     </div>

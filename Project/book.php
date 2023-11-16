@@ -193,6 +193,17 @@ function timeslots($duration,$cleanup,$start,$end){
     <script src="style.css"></script>
 
 </head>
+<style>
+     body
+     {
+            background-color: #eed9c4
+        }
+        .btn-primary 
+        {
+            background-color: #e11a27;
+            border: none
+        }
+</style>
 <body>
     <div class="container">
         <h1 class="text-center">Branch name: <?php echo $prebranch?></h1>

@@ -29,12 +29,13 @@ document.getElementById("audio").addEventListener('mouseup', function()
 }) 
 //post request to chatgpt
 const url = "https://api.openai.com/v1/chat/completions"
+var voices = window.speechSynthesis.getVoices()
 function callChatGPT(input) {
     fetch(url, {
         "method": "POST",
         "headers": new Headers({
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer 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"
         }),
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
@@ -43,9 +44,11 @@ function callChatGPT(input) {
         })
     }).then((res) => {
         res.json().then((data) => {
+            
             console.log(data.choices[0].message.content)
-            document.getElementById("textchatarea").innerHTML += "<div class='qn'>AI:<br>"+data.choices[0].message.content + "<br></div>"
             let text = new SpeechSynthesisUtterance(data.choices[0].message.content);
+            text.voice = voices[2]
+            document.getElementById("textchatarea").innerHTML += "<div class='qn'>AI:<br>"+data.choices[0].message.content + "<br></div>"
             speechSynthesis.speak(text);
         })
     })

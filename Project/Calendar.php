@@ -238,7 +238,16 @@ function checkSlots($mysqli,$date,$branch)
             background: yellow;
         }
         }
-        
+        body{
+            background-color: #eed9c4
+        }
+        .table-bordered td, .table-bordered th {
+            border: 1px solid black;
+        }
+        .btn-primary {
+            background-color: #e11a27;
+            border: none
+        }
         </style>
 </head>
 <body>
