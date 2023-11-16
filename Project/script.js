@@ -15,7 +15,7 @@ recognition.onspeechend = () => {
 
 recognition.onresult = (result) => {
     const vocalInput = result.results[0][0].transcript
-    document.getElementById("qn").innerHTML += vocalInput + "<br>"
+    // document.getElementById("qn").innerHTML += vocalInput + "<br>" // i don know what this is for
     console.log(vocalInput)
     callChatGPT(vocalInput)
 }
@@ -44,7 +44,7 @@ function callChatGPT(input) {
     }).then((res) => {
         res.json().then((data) => {
             console.log(data.choices[0].message.content)
-            document.getElementById("responses").innerHTML += data.choices[0].message.content + "<br>"
+            document.getElementById("textchatarea").innerHTML += "<div class='qn'>AI:<br>"+data.choices[0].message.content + "<br></div>"
             let text = new SpeechSynthesisUtterance(data.choices[0].message.content);
             speechSynthesis.speak(text);
         })
@@ -55,7 +55,7 @@ document.getElementById("submit").addEventListener('click', function()
 {
     var questions = document.getElementById("Question").value
     var qn = "Pretend you are an OCBC AI Assitant." + questions
-    document.getElementById("qn").innerHTML += questions + "<br>"
+    document.getElementById("textchatarea").innerHTML += "<div class='responses'>User:<br>"+questions + "<br></div>"
     console.log(questions)
     callChatGPT(qn)
 })

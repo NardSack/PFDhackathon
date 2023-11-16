@@ -3,9 +3,8 @@
 <html>
   <head>
     <title>My Page</title>
-    <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
-    <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
     <script type="module" src="script.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <style>
       body,html {
         height: 100%;
@@ -28,7 +27,7 @@
 
       }
       .title {
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         padding: 20px;
@@ -66,24 +65,29 @@
     </style>
   </head>
   <body>
-    <!-- <img src="ocbc office.jpg" alt=""> -->
-    <div id="qn">
-
-    </div>
-    <div id="responses">
-
-    </div>
-    <div id="chat">
-      <label for="Question">Enter your Question:</label>
-      <input type="text" id="Question" name="Question">
-      <button id="submit">></button>
-      <button style="max-width: 20%; max-height: 40%;" id="audio">
-      <img src="microphone.png" alt="audio" style="width:10%; height: 10%;"> press and hold</button>
-    </div>  
-    <!-- <div class="img"></div> -->
-    <!-- <div class="title blankscreen"></div> -->
     <div class="title">
       <img class="logo" src="https://www.ocbc.com/iwov-resources/sg/ocbc/gbc/img/logo_ocbc.png" style="max-width: 743.5px; max-height: 100px;">
     </div>
+    <!-- <img src="ocbc office.jpg" alt=""> -->
+    <div class="container">
+      <div class="col-md-3">
+        <div id="textchatarea">
+          <!-- <div class="qn">test question</div>
+          <div class="responses">test answers</div> -->
+        </div>
+
+        <div id="chat">
+          <label for="Question">Enter your Question:</label>
+          <input type="text" id="Question" name="Question">
+          <button id="submit">></button>
+          <button style="max-width: 20%; max-height: 40%;" id="audio">
+          <img src="microphone.png" alt="audio" style="width:10%; height: 10%;"> press and hold</button>
+        </div>  
+        
+      </div>
+    </div>
+    <!-- <div class="img"></div> -->
+    <!-- <div class="title blankscreen"></div> -->
+
   </body>
 </html>
