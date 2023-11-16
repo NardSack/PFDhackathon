@@ -35,7 +35,7 @@ function callChatGPT(input) {
         "method": "POST",
         "headers": new Headers({
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer "
         }),
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
