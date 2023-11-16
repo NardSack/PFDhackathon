@@ -260,6 +260,7 @@ function checkSlots($mysqli,$date,$branch)
              ?></h1>
             <div class="col-md-12">
                 <button class="btn btn-primary"onclick="window.location.href='../GoogleMapsJS-master/index.html'">Back to Map</button>
+                <button class="btn btn-primary"onclick="window.location.href='../Project/OCBC-HTML.html'">Back to AI Assistant</button>
                 <?php
                     $dateComponents = getdate();
                     if(isset($_GET['month']) && isset($_GET['year'])){
