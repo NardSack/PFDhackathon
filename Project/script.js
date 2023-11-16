@@ -15,7 +15,7 @@ recognition.onspeechend = () => {
 //get the text caught and convert to text and send to api
 recognition.onresult = (result) => {
     const vocalInput = result.results[0][0].transcript
-    // document.getElementById("qn").innerHTML += vocalInput + "<br>" // i don know what this is for
+    document.getElementById("textchatarea").innerHTML += "<div class='responses'>User:<br>"+vocalInput + "<br></div>"
     console.log(vocalInput)
     callChatGPT(vocalInput)
 }
@@ -38,7 +38,7 @@ function callChatGPT(input) {
         "method": "POST",
         "headers": new Headers({
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer  "
         }),
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
@@ -46,8 +46,8 @@ function callChatGPT(input) {
             temperature: 0.7,
         })
     }).then((res) => {
+        //get the text and send to chatgpt
         res.json().then((data) => {
-            
             console.log(data.choices[0].message.content)
             let text = new SpeechSynthesisUtterance(data.choices[0].message.content);
             text.voice = voices[2]
