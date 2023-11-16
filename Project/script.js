@@ -38,7 +38,7 @@ function callChatGPT(input) {
         "method": "POST",
         "headers": new Headers({
             "Content-Type": "application/json",
-            "Authorization": "Bearer"
+            "Authorization": "Bearer  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"
         }),
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
@@ -46,8 +46,8 @@ function callChatGPT(input) {
             temperature: 0.7,
         })
     }).then((res) => {
+        //get the text and send to chatgpt
         res.json().then((data) => {
-            
             console.log(data.choices[0].message.content)
             let text = new SpeechSynthesisUtterance(data.choices[0].message.content);
             text.voice = voices[2]
