@@ -15,8 +15,11 @@ recognition.onspeechend = () => {
 //get the text caught and convert to text and send to api
 recognition.onresult = (result) => {
     const vocalInput = result.results[0][0].transcript
-    document.getElementById("textchatarea").innerHTML += "<div class='responses'>User:<br>"+vocalInput + "<br></div>"
-    console.log(vocalInput)
+    // var v= "Pretend you are an OCBC AI Assitant." + vocalInput
+    // console.log(vocalInput)
+    // console.log(v)
+    document.getElementById("textchatarea").innerHTML += "<div class='responses'>User:<br>"+v + "<br></div>"
+    // console.log(vocal)
     callChatGPT(vocalInput)
 }
 //press to start the recording
@@ -38,7 +41,7 @@ function callChatGPT(input) {
         "method": "POST",
         "headers": new Headers({
             "Content-Type": "application/json",
-            "Authorization": "Bearer  "
+            "Authorization": "Bearer apikey"
         }),
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
